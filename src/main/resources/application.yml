@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/orders
+    username: orders
+    password: orders
+  jpa:
+    hibernate.ddl-auto: validate
+    properties.hibernate:
+      format_sql: true
+      jdbc.time_zone: UTC
+  flyway:
+    locations: classpath:db/migration
+server:
+  error:
+    include-message: always
+    include-binding-errors: always
+    whitelabel.enabled: false
+logging:
+  level:
+    root: INFO
+    org.springframework.security: INFO
+  logback:
+    rollingpolicy.max-file-size: 50MB
