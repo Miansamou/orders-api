@@ -17,7 +17,7 @@ create table products(
 create table orders(
   id uuid primary key,
   customer_id uuid not null references customers(id),
-  status varchar(32) not null,
+  status varchar(32) not null check (status in ('NEW','PAID','SHIPPED','CANCELLED')),
   subtotal_cents bigint not null,
   discount_cents bigint not null,
   freight_cents bigint not null,

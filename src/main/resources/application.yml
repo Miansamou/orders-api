@@ -1,4 +1,9 @@
 spring:
+  security:
+    oauth2:
+      resource server:
+        jwt:
+          public-key-location: classpath:keys/public.pem
   datasource:
     url: jdbc:postgresql://localhost:5432/orders
     username: orders
@@ -15,6 +20,9 @@ server:
     include-message: always
     include-binding-errors: always
     whitelabel.enabled: false
+idempotency:
+  enabled: true
+  ttl: PT24H
 logging:
   level:
     root: INFO
